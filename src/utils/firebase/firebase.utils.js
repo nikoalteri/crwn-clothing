@@ -8,12 +8,12 @@ import {
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB9HgaEJZSt_w2LVJHlFShP4e8t8FysDcw',
-  authDomain: 'crwn-clothing-db-f32ad.firebaseapp.com',
-  projectId: 'crwn-clothing-db-f32ad',
-  storageBucket: 'crwn-clothing-db-f32ad.appspot.com',
-  messagingSenderId: '452918116356',
-  appId: '1:452918116356:web:66e6f4f3290cf161b7f551',
+  apiKey: `${import.meta.env.VITE_FIREBASE_API_KEY}`,
+  authDomain: `${import.meta.env.VITE_FIREBASE_AUTH_DOMAIN}`,
+  projectId: `${import.meta.env.VITE_FIREBASE_PROJECT_ID}`,
+  storageBucket: `${import.meta.env.VITE_FIREBASE_STORAGE_BUCKET}`,
+  messagingSenderId: `${import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID}`,
+  appId: `${import.meta.env.VITE_FIREBASE_APP_ID}`,
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -23,6 +23,8 @@ provider.setCustomParameters({ prompt: 'select_account' });
 
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
+export const signInWithGoogleRedirect = () =>
+  signInWithRedirect(auth, provider);
 
 export const db = getFirestore();
 
