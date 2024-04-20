@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
 import './navigation.styles.scss';
-import Logo from '../logo/logo.component';
+import Logo from '../../components/logo/logo.component';
 
 const Navigation = () => {
   return (
